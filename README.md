@@ -2,9 +2,11 @@
 
 SansSeed is both a library and commandline tool for generating BIP39 compatible mnemonic phrases and derivation of seeds
 
+[![Build Status](https://travis-ci.org/sanscentral/SansSeed.svg?branch=master)](https://travis-ci.org/sanscentral/SansSeed)
+
 # Build
 
-Project uses [go dep](https://github.com/golang/dep) for dependency management
+Requires Go version 1.9 or later. Use [go dep](https://github.com/golang/dep) for dependency management
 
 Run all unit tests with `$ go test ./...`
 
