@@ -1,10 +1,9 @@
 # SansSeed
+[![Build Status](https://travis-ci.org/sanscentral/SansSeed.svg?branch=master)](https://travis-ci.org/sanscentral/SansSeed)
 
 SansSeed is both a library and command-line tool for generating BIP39 compatible mnemonic phrases and derivation of seeds
 
-[![Build Status](https://travis-ci.org/sanscentral/SansSeed.svg?branch=master)](https://travis-ci.org/sanscentral/SansSeed)
-
-# Build
+## Build
 
 Requires Go version 1.9 or later. Use [go dep](https://github.com/golang/dep) for dependency management
 
