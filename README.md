@@ -1,5 +1,5 @@
 # SansSeed
-[![Build Status](https://travis-ci.org/sanscentral/SansSeed.svg?branch=master)](https://travis-ci.org/sanscentral/SansSeed)
+[![Build Status](https://travis-ci.org/sanscentral/SansSeed.svg?branch=master)](https://travis-ci.org/sanscentral/sansseed)
 
 SansSeed is both a library and command-line tool for generating BIP39 compatible mnemonic phrases and derivation of seeds
 
