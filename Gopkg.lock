@@ -17,7 +17,13 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["pbkdf2"]
-  revision = "5f55bce93ad2c89f411e009659bb1fd83da36e7b"
+  revision = "13931e22f9e72ea58bb73048bc752b48c6d4d4ac"
+
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/mobile"
+  packages = ["bind","cmd/gomobile","internal/binres","internal/importers","internal/importers/java","internal/importers/objc"]
+  revision = "02851653b1d78a8a90888267945c797491e94a82"
 
 [[projects]]
   name = "gopkg.in/alecthomas/kingpin.v2"
@@ -28,6 +34,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a31907ffe7b4cc59da2205bf79f4178b508b7e9a6072c6da5353b1898872aa88"
+  inputs-digest = "47b236268681a18c153006759845a7a8f68c2017e36883a794d267c4d62364c1"
   solver-name = "gps-cdcl"
   solver-version = 1

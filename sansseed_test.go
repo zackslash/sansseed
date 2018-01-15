@@ -226,3 +226,19 @@ func TestSpanishSeedGeneration(t *testing.T) {
 	}
 	t.Logf("Language: Spanish\n%s", res)
 }
+
+func TestNewMnemonicPhraseForLanguage(t *testing.T) {
+	TwentyFourWordBitLen := 256
+	expectedLen := 24
+	r, err := sansseed.NewMnemonicPhraseForLanguage("french", TwentyFourWordBitLen)
+	if err != nil {
+		t.Errorf("SansSeed failed to generate a new mnemonic using NewMnemonicPhraseForLanguage: %s", err.Error())
+	}
+
+	st := strings.Split(r, " ")
+	if len(st) != expectedLen {
+		t.Errorf("NewMnemonicPhraseForLanguage mnemonic does not match. expected: %d got: %d", expectedLen, len(st))
+	}
+
+	t.Logf("Result: %s", r)
+}
