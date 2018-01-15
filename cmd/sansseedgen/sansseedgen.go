@@ -32,14 +32,14 @@ import (
 )
 
 var (
-	// Mnemonic Generation
+	// Mnemonic generation
 	gen  = kingpin.Flag("generate", "generates a new mnemonic phrase").Default().Short('g').Bool()
 	lang = kingpin.Flag("language", "the language to use for mnemonic phrase generation").Default("english").Short('c').String()
 	bulk = kingpin.Flag("bulk", "specify the number of seeds to generate (used for bulk generation of mnemonics)").Default("1").Short('b').Int64()
 	len  = kingpin.Flag("length", "mnemonic phrase length to generate").Default("12").Short('l').Int32()
 
-	// Seed generation from mnemonic
-	mnemonic = kingpin.Flag("mnemonic", "supplying a mnemonic phrase will return the hex encoded 512bit seed").Default("").Short('m').String()
+	// Seed derivation from mnemonic
+	mnemonic = kingpin.Flag("mnemonic", "supplying a mnemonic phrase will derive the hex encoded 512bit seed").Default("").Short('m').String()
 	password = kingpin.Flag("password", "password for mnemonic phrase (used with mnemonic to derive the seed)").Default("").Short('p').String()
 )
 
