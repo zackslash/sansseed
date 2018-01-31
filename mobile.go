@@ -19,16 +19,18 @@
 package sansseed
 
 import (
+	"encoding/hex"
 	"strings"
 
+	"github.com/sanscentral/sansseed/derivation"
 	"github.com/sanscentral/sansseed/lengths"
 	"github.com/sanscentral/sansseed/wordlists"
 )
 
-// NewMnemonicPhraseForLanguage is a GoMobile compatible function that
-// returns a new random mnemonic phrase for given bitlength and language as a single string
-func NewMnemonicPhraseForLanguage(language string, bitlength int) (string, error) {
-	ent, err := NewWordEntropy(lengths.SeedBitLength(bitlength))
+// New24WordMnemonicPhraseForLanguage is a GoMobile compatible function that
+// returns a new random 24 word mnemonic phrase for given language as a single space seperated string
+func New24WordMnemonicPhraseForLanguage(language string) (string, error) {
+	ent, err := NewWordEntropy(lengths.SeedBitLength(lengths.TwentyfourWordSeed))
 	if err != nil {
 		return "", err
 	}
@@ -44,6 +46,12 @@ func NewMnemonicPhraseForLanguage(language string, bitlength int) (string, error
 	}
 
 	r := strings.Join(reSlice, " ")
-
 	return r, nil
+}
+
+// DeriveSeedFromMnemonic is a GoMobile compatible function that
+// returns the hex encoded seed derived from the given mnemonic
+func DeriveSeedFromMnemonic(mnemonic string) string {
+	seed := derivation.DeriveSeedFromMnemonic(mnemonic, "")
+	return hex.EncodeToString(seed)
 }
