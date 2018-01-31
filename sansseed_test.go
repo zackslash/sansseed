@@ -228,9 +228,8 @@ func TestSpanishSeedGeneration(t *testing.T) {
 }
 
 func TestNewMnemonicPhraseForLanguage(t *testing.T) {
-	TwentyFourWordBitLen := 256
 	expectedLen := 24
-	r, err := sansseed.NewMnemonicPhraseForLanguage("french", TwentyFourWordBitLen)
+	r, err := sansseed.New24WordMnemonicPhraseForLanguage("french")
 	if err != nil {
 		t.Errorf("SansSeed failed to generate a new mnemonic using NewMnemonicPhraseForLanguage: %s", err.Error())
 	}
