@@ -1,5 +1,0 @@
-required = ["golang.org/x/mobile/cmd/gomobile"]
-
-[[constraint]]
-  branch = "master"
-  name = "golang.org/x/crypto"

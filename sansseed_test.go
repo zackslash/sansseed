@@ -1,21 +1,3 @@
-/*
-	SansSeed is a BIP39 compatible implementation for generating mnemonic phrases and seed derivation
-	Copyright (C) 2018  Sans Central
-
-	This program is free software: you can redistribute it and/or modify
-	it under the terms of the GNU Affero General Public License as
-	published by the Free Software Foundation, either version 3 of the
-	License, or (at your option) any later version.
-
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU Affero General Public License for more details.
-
-	You should have received a copy of the GNU Affero General Public License
-	along with this program.  If not, see <https://www.gnu.org/licenses/>.
-*/
-
 package sansseed_test
 
 import (
@@ -24,10 +6,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sanscentral/sansseed"
-	"github.com/sanscentral/sansseed/entropy"
-	"github.com/sanscentral/sansseed/lengths"
-	"github.com/sanscentral/sansseed/wordlists/languages"
+	"github.com/zackslash/sansseed"
+	"github.com/zackslash/sansseed/entropy"
+	"github.com/zackslash/sansseed/lengths"
+	"github.com/zackslash/sansseed/wordlists/languages"
 )
 
 var testEnt []int
@@ -240,4 +222,20 @@ func TestNewMnemonicPhraseForLanguage(t *testing.T) {
 	}
 
 	t.Logf("Result: %s", r)
+}
+
+func TestGeneration(t *testing.T) {
+	// Generate new random entropy
+	ent, err := sansseed.NewWordEntropy(lengths.SeedBitLength(lengths.TwentyfourWordSeed))
+	if err != nil {
+		t.Errorf(err.Error())
+	}
+
+	// Generate an english mnemonic using the new entropy (Note this package currently supports 8 languages)
+	res, err := sansseed.MnemonicPhraseForLanguage(ent, languages.BIP39English{})
+	if err != nil {
+		t.Errorf(err.Error())
+	}
+
+	fmt.Printf("%s", res)
 }
