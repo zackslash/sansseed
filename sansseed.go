@@ -28,7 +28,7 @@ func MnemonicPhraseForLanguage(i []int, l wordlists.BIP39Wordlist) ([]string, er
 	w := l.GetList()
 	r := []string{}
 	for _, en := range i {
-		if en <= 0 || en >= len(w) {
+		if en < 0 || en >= len(w) {
 			return []string{}, errors.New("entropy exceeds bounds of word list")
 		}
 

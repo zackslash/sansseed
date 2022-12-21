@@ -239,3 +239,33 @@ func TestGeneration(t *testing.T) {
 
 	fmt.Printf("%s", res)
 }
+
+func TestGenerationZeroEnglish(t *testing.T) {
+	expectedOut := "abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon"
+
+	// Generate seed all zeroes
+	e, err := entropy.GetRandomEntropyBytesWithCheckSum(lengths.TwentyfourWordSeed)
+	if err != nil {
+		t.Errorf(err.Error())
+	}
+
+	ints, err := entropy.BinaryStringToIntSlice(e)
+	if err != nil {
+		t.Errorf(err.Error())
+	}
+
+	zeroEnt := []int{}
+	for range ints {
+		zeroEnt = append(zeroEnt, 0)
+	}
+
+	// Generate an english mnemonic using the new entropy (Note this package currently supports 8 languages)
+	res, err := sansseed.MnemonicPhraseForLanguage(zeroEnt, languages.BIP39English{})
+	if err != nil {
+		t.Errorf(err.Error())
+	}
+
+	if expectedOut != strings.Join(res, " ") {
+		t.Errorf("generation result did not match expected value")
+	}
+}
