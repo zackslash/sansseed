@@ -1,6 +1,6 @@
 # SansSeed
 
-SansSeed is both a library and command-line tool for generating BIP39 compatible mnemonic phrases and derivation of BIP39 seeds.
+SansSeed is both a library and command-line tool for generating BIP39 compatible mnemonic phrases and derivation of BIP39 seeds for research purposes.
 
 ## Usage
 
